@@ -95,9 +95,9 @@ const Home = () => {
               <p>Instant transfers and real-time notifications.</p>
             </div>
             <div className="feature">
-              <i className="fas fa-chart-line"></i>
-              <h3>Smart Insights</h3>
-              <p>AI-powered spending analysis and budgeting tools.</p>
+              <i className="fas fa-exchange-alt"></i>
+              <h3>Domestic & Global Wires</h3>
+              <p>Execute same-day local wires or SWIFT transfers with minimal fees.</p>
             </div>
           </div>
         </div>

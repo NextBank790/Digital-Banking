@@ -148,7 +148,7 @@ const Dashboard = () => {
                 onClick={(e) => { e.preventDefault(); setActivePanel('transfers'); }}
                 className={activePanel === 'transfers' ? 'active' : ''}
               >
-                Transfers
+                Transfers & Wires
               </a>
             </li>
           </ul>
@@ -275,7 +275,7 @@ const Dashboard = () => {
             </li>
             <li>
               <a href="#" onClick={(e) => { e.preventDefault(); setActivePanel('transfers'); }} className={`menu-item ${activePanel === 'transfers' ? 'active' : ''}`} id="menu-transfers">
-                <i className="fas fa-exchange-alt"></i> Send Money
+                <i className="fas fa-exchange-alt"></i> Send Money & Wires
               </a>
             </li>
             <li>
