@@ -2121,14 +2121,61 @@ body.theme-dark .trans-info h4, body.theme-glass .trans-info h4 {
     margin: 0;
 }
 
+/* Form Row Custom Grid (Desktop default) */
+.form-row-custom {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    margin-bottom: 1rem;
+}
+
 /* Responsive adjustment for Sidebar Dashboard */
 @media (max-width: 992px) {
     .dashboard-container {
         grid-template-columns: 1fr;
+        padding: 0 1rem;
+        margin-top: 80px;
+        gap: 1.5rem;
+    }
+    .dashboard-sidebar {
+        padding: 0.5rem;
+        overflow-x: auto;
+        -webkit-overflow-scrolling: touch;
+        border-radius: var(--border-radius-md);
+        background: rgba(255, 255, 255, 0.9);
+        border: 1px solid var(--border-color);
+    }
+    .sidebar-menu {
+        flex-direction: row;
+        gap: 0.5rem;
+        width: max-content;
+    }
+    .sidebar-menu li a {
+        padding: 0.6rem 1rem;
+        font-size: 0.85rem;
+        white-space: nowrap;
+    }
+    .dashboard-panels {
+        padding: 0 !important;
+        margin-top: 0;
     }
     .chatbot-window {
-        width: 320px;
+        width: 90vw;
+        max-width: 380px;
         height: 450px;
+        right: 0;
+        bottom: 80px;
+    }
+    .glass-panel {
+        padding: 1.25rem !important;
+    }
+    .form-row-custom {
+        grid-template-columns: 1fr !important;
+        gap: 1rem !important;
+    }
+    .dashboard-header {
+        margin-top: 80px !important;
+        padding: 1rem !important;
     }
 }
 
