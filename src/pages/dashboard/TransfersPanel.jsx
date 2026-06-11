@@ -35,6 +35,13 @@ const TransfersPanel = () => {
   const [achAccount, setAchAccount] = useState('');
   const [achAmount, setAchAmount] = useState('');
 
+  const [wireSource, setWireSource] = useState('checking');
+  const [wireName, setWireName] = useState('');
+  const [wireRouting, setWireRouting] = useState('');
+  const [wireAccount, setWireAccount] = useState('');
+  const [wireBankName, setWireBankName] = useState('');
+  const [wireAmount, setWireAmount] = useState('');
+
   const [swiftSource, setSwiftSource] = useState('checking');
   const [swiftCountry, setSwiftCountry] = useState('United Kingdom');
   const [swiftName, setSwiftName] = useState('');
@@ -145,6 +152,11 @@ const TransfersPanel = () => {
     setAchRouting('');
     setAchAccount('');
     setAchAmount('');
+    setWireName('');
+    setWireRouting('');
+    setWireAccount('');
+    setWireBankName('');
+    setWireAmount('');
     setSwiftName('');
     setSwiftCode('');
     setSwiftAccount('');
@@ -300,17 +312,40 @@ const TransfersPanel = () => {
     });
   };
 
+  // 5. Wire Transfer Submit
+  const handleWireTransferSubmit = (e) => {
+    e.preventDefault();
+    const amount = parseFloat(wireAmount);
+    if (isNaN(amount) || amount <= 0) return alert('Enter valid amount.');
+    if (wireRouting.length !== 9) return alert('Routing number must be exactly 9 digits.');
+
+    const fee = 15.00;
+    const totalDeduction = amount + fee;
+
+    const balance = wireSource === 'checking' ? checkingBalance : savingsBalance;
+    if (balance < totalDeduction) return alert('Insufficient funds to cover amount + $15.00 wire transfer fee.');
+
+    triggerTransferVerification({
+      gateway: 'Domestic Wire',
+      recipientName: `${wireName} (Bank: ${wireBankName}, Account: ${wireAccount})`,
+      source: wireSource,
+      amount: amount,
+      deduction: totalDeduction
+    });
+  };
+
   return (
     <section id="panel-transfers" className="dashboard-panel active">
       <div className="glass-panel" style={{ padding: '2.5rem' }}>
         <h2><i className="ri-exchange-line"></i> Funds Transfer</h2>
         <p style={{ marginBottom: '2rem' }}>Send local transfers, SWIFT international wires, user-to-user instant payouts, or internal movements.</p>
         
-        <div className="transfer-tabs" style={{ display: 'flex', gap: '10px', marginBottom: '2rem', background: '#eee', padding: '5px', borderRadius: '10px' }}>
-          <button className={`btn-secondary ${activeTab === 'local' ? 'active' : ''}`} style={{ flex: 1, borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('local')}>Internal Account</button>
-          <button className={`btn-secondary ${activeTab === 'user' ? 'active' : ''}`} style={{ flex: 1, borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('user')}>User-to-User</button>
-          <button className={`btn-secondary ${activeTab === 'ach' ? 'active' : ''}`} style={{ flex: 1, borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('ach')}>Domestic (ACH)</button>
-          <button className={`btn-secondary ${activeTab === 'swift' ? 'active' : ''}`} style={{ flex: 1, borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('swift')}>International Wire</button>
+        <div className="transfer-tabs" style={{ display: 'flex', flexWrap: 'wrap', gap: '10px', marginBottom: '2rem', background: '#eee', padding: '5px', borderRadius: '10px' }}>
+          <button className={`btn-secondary ${activeTab === 'local' ? 'active' : ''}`} style={{ flex: '1 1 auto', borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('local')}>Internal Account</button>
+          <button className={`btn-secondary ${activeTab === 'user' ? 'active' : ''}`} style={{ flex: '1 1 auto', borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('user')}>User-to-User</button>
+          <button className={`btn-secondary ${activeTab === 'ach' ? 'active' : ''}`} style={{ flex: '1 1 auto', borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('ach')}>Domestic (ACH)</button>
+          <button className={`btn-secondary ${activeTab === 'wire' ? 'active' : ''}`} style={{ flex: '1 1 auto', borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('wire')}>Wire Transfer</button>
+          <button className={`btn-secondary ${activeTab === 'swift' ? 'active' : ''}`} style={{ flex: '1 1 auto', borderRadius: '8px', padding: '0.8rem', fontSize: '0.9rem' }} onClick={() => setActiveTab('swift')}>International Wire</button>
         </div>
 
         {/* Tab 1: Internal Transfers */}
@@ -407,6 +442,55 @@ const TransfersPanel = () => {
                 <input type="number" placeholder="1000.00" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={achAmount} onChange={(e) => setAchAmount(e.target.value)} required />
               </div>
               <button type="submit" className="btn-primary" style={{ width: '100%' }}>Transfer via ACH</button>
+            </form>
+          </div>
+        )}
+
+        {/* Tab 5: Wire Transfer */}
+        {activeTab === 'wire' && (
+          <div id="transferSubPanelWire" className="transfer-sub-panel">
+            <h3>Domestic Wire Transfer</h3>
+            <form onSubmit={handleWireTransferSubmit} id="formWireTransfer" style={{ marginTop: '1.5rem' }}>
+              <div className="form-row-custom">
+                <div className="form-group">
+                  <label>Source Account</label>
+                  <select className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireSource} onChange={(e) => setWireSource(e.target.value)}>
+                    <option value="checking">Checking Account</option>
+                    <option value="savings">Savings Account</option>
+                  </select>
+                </div>
+                <div className="form-group">
+                  <label>Recipient Name</label>
+                  <input type="text" placeholder="John Doe" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireName} onChange={(e) => setWireName(e.target.value)} required />
+                </div>
+              </div>
+              <div className="form-row-custom">
+                <div className="form-group">
+                  <label>Routing (ABA) Number</label>
+                  <input type="text" placeholder="9-digit routing" maxLength="9" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireRouting} onChange={(e) => setWireRouting(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label>Account Number</label>
+                  <input type="text" placeholder="Recipient account number" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireAccount} onChange={(e) => setWireAccount(e.target.value)} required />
+                </div>
+              </div>
+              <div className="form-row-custom">
+                <div className="form-group">
+                  <label>Receiving Bank Name</label>
+                  <input type="text" placeholder="Chase Bank" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireBankName} onChange={(e) => setWireBankName(e.target.value)} required />
+                </div>
+                <div className="form-group">
+                  <label>Amount ($)</label>
+                  <input type="number" placeholder="5000.00" className="form-control" style={{ width: '100%', padding: '0.75rem', borderRadius: '8px' }} value={wireAmount} onChange={(e) => setWireAmount(e.target.value)} required />
+                </div>
+              </div>
+              <div className="form-group" style={{ marginBottom: '1.5rem' }}>
+                <div className="fee-summary" style={{ background: 'var(--light)', padding: '1rem', borderRadius: '8px', fontSize: '0.9rem' }}>
+                  <div>Flat Wire Transfer Fee: <strong>$15.00</strong></div>
+                  <div>Processing Time: <strong>Same-Day (Cutoff 4 PM EST)</strong></div>
+                </div>
+              </div>
+              <button type="submit" className="btn-primary" style={{ width: '100%' }}>Transfer via Wire</button>
             </form>
           </div>
         )}
