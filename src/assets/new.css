@@ -1,0 +1,129 @@
+*{
+    padding: 0%;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+.logo img{
+    width: 50px;
+    height: auto;
+}
+
+li a{
+    text-decoration: none;
+    list-style: none;
+    margin-left: 20px;
+    color: beige;
+}
+
+a:hover{
+    color: rgb(212, 151, 151);
+}
+
+li{
+    display: inline;
+}
+button:hover{
+    color: blueviolet;
+}
+
+button{
+    padding: 5px;
+    border-radius: 5px;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    height: 4rem;
+    padding: 20px;
+    background: rgb(215, 149, 51);
+}
+
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    width: 700px;
+    margin: 120px auto;
+
+    background: #d9baba;
+    padding: 12px 20px;
+
+    border-radius: 50px;
+}
+
+.nav-links{
+    list-style: none;
+    display: flex;
+    gap: 40px;
+}
+
+.nav-links a{
+    color: white;
+    text-align: none;
+    font-size: 16px;
+}
+
+.nav-links:hover{
+    color: blue;
+}
+
+.email-pill{
+   background: white;
+   padding: 10px 18px; 
+
+   border-radius: 25px;
+   font-size: 14px;
+}  
+
+.flex-container{
+    display: flex;
+    /* flex-direction: row-reverse; */
+    /* flex-wrap: wrap; */
+    justify-content: center;
+    gap: 10px;
+}
+
+.one{
+    width: 100px;
+    height: 100px;
+    padding: 20px;
+    background-color: aqua;
+    text-align: center;
+    font-size: 26px;
+    font-weight: 700;
+}
+
+div{
+    width: 100px;
+    height: 100px;
+    background-color: aqua;
+    animation-name: JokerAnimation;
+    animation-duration: 5s;
+}
+
+@keyframes JokerAnimation{
+    from {background-color: aqua;}
+    to{background-color: yellow;}
+}
+
+.Ani{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    animation-name: AdeAnimation;
+    animation-duration: 6s;
+    border-radius: 40%;
+}
+
+@keyframes AdeAnimation{
+    0% {background-color: brown;}
+    25%{background-color: aquamarine;}
+    50%{background-color: bisque;}
+    100%{background-color: blanchedalmond;}
+}

@@ -1,0 +1,112 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+body{
+    background: #7aa2d6;
+    padding: 50px 20px;
+    /* display: flex; */
+    justify-content: center;
+}
+
+.card-grid{
+    display: flex;
+    gap: 20px;
+    max-width: 1100px;
+    flex-wrap: wrap;
+}
+
+.card{
+    background: white;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    flex: 1;
+    min-width: 300px;
+}
+
+.card-image{
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.card-content{
+    padding: 20px;
+}
+
+.badge{
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    color: white;
+    display: inline-block;
+    margin-bottom: 10px;
+}
+
+.badge-tech{
+    background: #4da3ff;
+}
+.badge-food{
+    background: #ffb347;
+}
+.badge-auto{
+    background: #ff4d6d;
+}
+
+h3{
+    margin: 10px 0;
+    font-size: 1.2rem;
+    color: #333;
+}
+
+p{
+    font-size: 0.9rem;
+    color: #666;
+    line-height: 1.5;
+}
+
+.author{
+    display: flex;
+    align-items: center;
+    margin-top: 20px;
+    gap: 10px;
+}
+
+.author img{
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+.author div{
+    display: flex;
+    flex-direction: column;
+}
+.author strong{
+    font-size: 0.85rem;
+}
+.author span{
+    font-size: 0.75rem;
+    color: #999;
+}
+
+.container1{
+    display: grid;
+    grid-template-columns: auto auto auto;
+    background: white;
+    padding: 5px;
+    gap: 5px;
+}
+
+.container1 div{
+    background-color: #666;
+    color: aliceblue;
+    padding: 10px;
+    font-size: 30px;
+    text-align: center;
+
+}
+

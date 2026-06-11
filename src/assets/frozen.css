@@ -1,0 +1,177 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: Arial, Helvetica, sans-serif;
+
+    background: #f6fbff;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+    background: #0ea5e9;
+    color: white;
+}
+
+nav a{
+    margin: 15px;
+    color: white;
+    text-decoration: none;
+}
+
+.hero{
+    background: url(img/Fresh\ frozen\ food\ delivery\ selection.png) center/cover no-repeat;
+    height: 400px;
+    background-position: center;
+    padding: 130px 0;
+    /* background-size: cover; */
+    display: flex;
+    justify-content: center;
+    color: white;
+    text-align: center;
+}
+
+.hero button{
+    padding: 12px 25px;
+    border: none;
+    background: #0ea5e9;
+    color: white;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+.categories{
+    padding: 50px;
+    text-align: center;
+}
+
+.category-grid{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 20px ;
+}
+
+.category-card{
+    background: white;
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0,0, 0.1);
+}
+
+.category-card img{
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.products{
+    padding: 50px;
+    text-align: center;
+}
+
+.product-grid{
+    display: flex;
+    gap: 20px ;
+    max-width: 1100px;
+    flex-wrap: wrap;
+
+}
+
+.product-card{
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+
+.product-card img{
+    width: 100%;
+    height: 180px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product-card button{
+    background: #0ea5e9;
+    border: none;
+    color: white;
+    padding: 10px;
+    cursor: pointer;
+    margin-top: 10px;
+}
+
+.delivery{
+    background: url(img/Frozen\ food\ assortment\ in\ cooler.png)center/cover no-repeat;
+    height: 250px;
+    /* background-size: cover; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+}
+
+.product-page{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    padding: 50px;
+}
+
+.product-page img{
+    width: 100%;
+    border-radius: 10px;
+}
+
+.about{
+    padding: 60px;
+    text-align: center;
+}
+
+.contact{
+    padding: 60px;
+    text-align: center;
+}
+
+.why{
+    background: white;
+    padding: 40px;
+    text-align: center;
+}
+
+.whatsapp{
+    background: #25d366;
+    padding: 40px;
+    text-align: center;
+    color: white;
+}
+
+.search-section{
+    text-align: center;
+    padding: 30px;
+}
+
+#serch{
+    width: 60%;
+    padding: 12px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+}
+
+.view-cart{
+    text-align: center;
+    margin: 40px;
+}
+
+footer{
+    background: #0ea5e9;
+    color: white;
+    padding: 20px;
+    text-align: center;
+}

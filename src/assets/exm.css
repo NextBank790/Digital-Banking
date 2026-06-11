@@ -1,0 +1,96 @@
+*{
+    padding: 0%;
+    margin: 0%;
+    box-sizing: border-box;
+}
+.logo img{
+    width: 50px;
+    height: auto;
+}
+
+li a{
+    text-decoration: none;
+    list-style: none;
+    margin-left: 20px;
+    color: beige;
+}
+a:hover{
+    color: blue;
+}
+
+li{
+    display: inline;
+}
+
+nav{
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: auto;
+    align-items: center;
+    height: 5rem;
+}
+
+header{
+    background-color:rgb(8, 139, 139) ;
+}
+.Snd-nav{
+    display: flex;
+    text-decoration: none;
+    background-color: black;
+    padding: 20px;
+    max-width: 1200;
+}
+
+.Snd-nav a{
+    color: azure;
+    list-style: none;
+    text-decoration: none;
+    margin-right: 30px;
+}
+
+.Snd-nav p{
+    margin: auto;
+}
+
+main{
+    width: fit-content;
+    height: 100px;
+    background-color: aqua;
+    animation-name: jokerAnimation;
+    animation-duration: 5s;
+    /* border-radius: 50px; */
+}
+
+@keyframes jokerAnimation{
+    0% {background-color: aqua;}
+    25%{background-color: bisque;}
+    50%{background-color: blueviolet;}
+    100%{background-color: brown;}
+}
+
+header{
+    background-color: antiquewhite;
+    animation-name: alertiAnimation;
+    animation-duration: 5s;
+    animation-delay: 2s;
+}
+
+@keyframes alertiAnimation{
+    0%{background-color: antiquewhite;}
+    25%{background-color: aqua;}
+    50%{background-color: bisque;}
+    100%{background-color: blanchedalmond;}
+}
+
+section{
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+    animation-name: beulahAnimation;
+    animation-duration: 5s;
+}
+
+@keyframes beulahAnimation{
+    0%{background-color: ;}
+}

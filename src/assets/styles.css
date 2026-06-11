@@ -1,0 +1,19 @@
+/* div */
+/* {background: rgb(0, 0, 255);} */
+
+.myown{
+    background-color: azure;
+    color: red;
+}
+
+span{
+    color: rgb(221, 138, 29);
+    font-size: 20px;
+}
+div{
+    background-image: url(food.jpg);
+    background-repeat: no-repeat;
+    height: 900px;
+    background-size: 100%;
+}
+

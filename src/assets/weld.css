@@ -1,0 +1,140 @@
+body{
+    margin: 0%; font-family: Arial, Helvetica, sans-serif; background: #02131f; color: white;
+}
+header{
+    display: flex; justify-content: space-between; align-items: center; padding: 20px 50px; background: #010a12;
+}
+header h1{
+    color: #00c2ff;
+}
+nav a{
+    margin: 0% 15px; color: white; text-decoration: none;
+}
+
+.Contact-section{
+    justify-content: center;
+    padding: 50px;
+    width: 100%;
+    max-width: 800px;
+    text-align: center;
+}
+
+.form-header{
+    margin-bottom: 40px;
+    font-size: 0.95rem;
+    opacity: 0.9;
+}
+
+.input-grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+input, textarea{
+    background: rgba(255, 255, 255, 0.9);
+    border: none;
+    padding: 15px 25px;
+    border-radius: 50px;
+    font-size: 1rem;
+    outline: none;
+    text-align: center;
+}
+textarea{
+    width: 100%;
+    height: 150px;
+    border-radius: 30px;
+    resize: none;
+    margin-bottom: 20px;
+    box-sizing: border-box;
+}
+
+.form-footer{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    margin-top: 20px;
+}
+.checkbox{
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+
+.custom-checkbox input{
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.custom-checkbox a{
+    color: #4da3ff;
+    text-decoration: underline;
+}
+
+.submit-btn{
+    background-color: #c4d8d1;
+    color: #333;
+    border: none;
+    padding: 12px 35px;
+    border-radius: 50px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+.submit-btn:hover{
+    background: #a8bcba;
+}
+
+@media(max-width:600px){
+    .input-grid{
+        grid-template-columns: 1fr;
+    }
+    .form-footer{
+        flex: column;
+        align-items: center;
+        gap: 20px;
+    }
+}
+
+/* .hero h2{ */
+    /* font-size: 48px; */
+}
+/* .hero p{ */
+    /* max-width: 600px; */
+}
+/* .hero button{ */
+    padding: 15px 30px;
+    background: #00c2ff;
+    border: none;
+    color: black;
+    margin-top: 20px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.set{
+    padding: 60px 50px;
+}
+.service{
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,1fr));
+    gap: 20px;
+}
+
+.cart{
+    background: #03324a;
+    padding: 25px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.cart:hover{
+    transform: translateY(-10px);
+}
+
+.foot{
+    text-align: center; padding: 20px; background: #010a12;
+}
