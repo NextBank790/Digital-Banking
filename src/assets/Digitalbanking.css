@@ -279,7 +279,7 @@ body {
 }
 
 .hero h1 {
-    font-size: clamp(2.8rem, 7vw, 5rem);
+    font-size: clamp(2rem, 6vw, 4.5rem);
     font-weight: 800;
     margin-bottom: 1.5rem;
     line-height: 1.1;
@@ -2121,6 +2121,14 @@ body.theme-dark .trans-info h4, body.theme-glass .trans-info h4 {
     margin: 0;
 }
 
+/* Auth button visibility styles */
+.mobile-only-auth {
+    display: none;
+}
+.desktop-only-auth {
+    display: flex;
+}
+
 /* Form Row Custom Grid (Desktop default) */
 .form-row-custom {
     display: grid;
@@ -2129,7 +2137,25 @@ body.theme-dark .trans-info h4, body.theme-glass .trans-info h4 {
     margin-bottom: 1rem;
 }
 
-/* Responsive adjustment for Sidebar Dashboard */
+/* Settings Grid (Desktop default) */
+.settings-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2.5rem;
+    align-items: start;
+}
+
+/* Responsive adjustment for Mobile Auth Buttons */
+@media (max-width: 768px) {
+    .mobile-only-auth {
+        display: block !important;
+    }
+    .desktop-only-auth {
+        display: none !important;
+    }
+}
+
+/* Responsive adjustment for Sidebar Dashboard & Mobile Layouts */
 @media (max-width: 992px) {
     .dashboard-container {
         grid-template-columns: 1fr;
@@ -2144,6 +2170,10 @@ body.theme-dark .trans-info h4, body.theme-glass .trans-info h4 {
         border-radius: var(--border-radius-md);
         background: rgba(255, 255, 255, 0.9);
         border: 1px solid var(--border-color);
+        scrollbar-width: none; /* Firefox */
+    }
+    .dashboard-sidebar::-webkit-scrollbar {
+        display: none; /* Chrome/Safari */
     }
     .sidebar-menu {
         flex-direction: row;
@@ -2172,6 +2202,14 @@ body.theme-dark .trans-info h4, body.theme-glass .trans-info h4 {
     .form-row-custom {
         grid-template-columns: 1fr !important;
         gap: 1rem !important;
+    }
+    .settings-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
+    }
+    .crypto-grid {
+        grid-template-columns: 1fr !important;
+        gap: 1.5rem !important;
     }
     .dashboard-header {
         margin-top: 80px !important;

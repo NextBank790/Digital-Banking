@@ -46,8 +46,24 @@ const Navbar = () => {
               Contact
             </Link>
           </li>
+          <li className="mobile-only-auth" style={{ width: '100%', marginTop: '1rem' }}>
+            {isAuthenticated ? (
+              <Link to="/dashboard" className="signup-btn" style={{ display: 'inline-flex', width: '100%', justifyContent: 'center' }} onClick={closeMenu}>
+                Go to Dashboard <i className="fas fa-arrow-right"></i>
+              </Link>
+            ) : (
+              <div style={{ display: 'flex', flexDirection: 'column', gap: '10px', width: '100%' }}>
+                <Link to="/login" className="login-btn" style={{ justifyContent: 'center', width: '100%' }} onClick={closeMenu}>
+                  Login
+                </Link>
+                <Link to="/signup" className="signup-btn" style={{ justifyContent: 'center', width: '100%' }} onClick={closeMenu}>
+                  Sign Up
+                </Link>
+              </div>
+            )}
+          </li>
         </ul>
-        <div className="auth-buttons">
+        <div className="auth-buttons desktop-only-auth">
           {isAuthenticated ? (
             <Link to="/dashboard" className="signup-btn">
               Go to Dashboard <i className="fas fa-arrow-right"></i>
